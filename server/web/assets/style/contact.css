@@ -1,0 +1,19 @@
+.contact-content {
+    margin-top: 35px;
+}
+.contact-content .list {
+    margin-left: 30px;
+}
+.contact-content .list li {
+    margin-bottom: 15px;
+}
+.contact-content .list li .label {
+    display: inline-block;
+    width: 120px;
+    margin-right: 10px;
+    text-align: right;
+    color: #666;
+}
+.contact-content .list li .label i {
+    font-style: inherit;
+}

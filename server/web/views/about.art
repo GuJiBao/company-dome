@@ -1,0 +1,56 @@
+{{extend './layout.art'}}
+
+{{block 'meta'}}
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+{{/block}}
+{{block 'title'}}
+<title class="i18n" name="aboutPageTitle"></title>
+{{/block}}
+
+{{block 'head'}}
+<link rel="stylesheet" href="/web/assets/style/swiper.min.css" />
+<link rel="stylesheet" href="/web/assets/style/font.css" />
+<link rel="stylesheet" href="/web/assets/style/about.css" />
+{{/block}}
+
+{{block 'content'}}
+<div class="wrap banner-wrap"></div>
+<div class="wrap clearfix">
+  {{include './common/aside.art'}}
+  <section class="main">
+    <div class="module mt15">
+      <div class="title">
+        <i class="fa fa-external-link" aria-hidden="true"></i
+        ><span class="i18n" name="aboutContentTitle"></span>
+      </div>
+      <div class="about-content">
+        <div class="pics">
+          <div class="swiper-container" id="aboutSwiper">
+            <div class="swiper-wrapper">
+              {{each data.images}}
+              <div class="swiper-slide">
+                <div class="pic-wrap">
+                  <img src="{{ $value.path }}" class="img" />
+                </div>
+              </div>
+              {{/each}}
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+        <div class="text-wrap">
+          {{set details = language === 'en' ? data.enDetails : data.details}}
+          {{details}}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{{/block}}
+
+{{block 'foot'}}
+<script src="/web/assets/js/plugins/swiper/swiper.min.js"></script>
+<script src="/web/assets/js/about.js"></script>
+{{/block}}

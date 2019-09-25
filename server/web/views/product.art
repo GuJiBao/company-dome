@@ -1,0 +1,70 @@
+{{extend './layout.art'}}
+
+{{block 'meta'}}
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+{{/block}}
+{{block 'title'}}
+<title class="i18n" name="productPageTitle"></title>
+{{/block}}
+
+{{block 'head'}}
+<link rel="stylesheet" href="/web/assets/style/font.css" />
+<link rel="stylesheet" href="/web/assets/style/product.css" />
+{{/block}}
+
+{{block 'content'}}
+<div class="wrap banner-wrap"></div>
+<div class="wrap clearfix">
+  {{include './common/aside.art'}}
+  <section class="main">
+    <div class="module mt15">
+      <div class="title">
+        <i class="fa fa-external-link" aria-hidden="true"></i
+        ><span class="i18n" name="productContentTitle"></span>
+      </div>
+      <div class="product-content">
+        <div class="product-list clearfix">
+          {{each data}}
+          <div class="item">
+            {{set id = $value._id.toString()}}
+            {{set name = language === 'en' ? $value.enName : $value.name}}
+            <div class="pic">
+              <a href="/productDetail?curPage=product&id={{ id }}"
+                ><img src="{{ $value.image.url }}" alt=""
+              /></a>
+            </div>
+            <p class="text">
+              <a href="/productDetail?curPage=product&id={{ id }}" title="{{name}}">{{ name }}</a>
+            </p>
+          </div>
+          {{/each}}
+        </div>
+        <div class="page-box">
+          <div id="page"></div>
+          <input
+            type="hidden"
+            class="i18n-input"
+            selectname="firstPage"
+            value=""
+            id="inputFirstPage"
+          />
+          <input
+            type="hidden"
+            class="i18n-input"
+            selectname="lastPage"
+            value=""
+            id="inputLastPage"
+          />
+          <input type="hidden" value="{{ pageTotal }}" id="pageTotal" />
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{{/block}}
+
+{{block 'foot'}}
+<script src="/web/assets/js/plugins/page/jquery.page.js"></script>
+<script src="/web/assets/js/product.js"></script>
+{{/block}}

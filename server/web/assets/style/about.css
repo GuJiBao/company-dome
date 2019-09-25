@@ -1,0 +1,27 @@
+.about-content {
+  padding: 35px 60px;
+}
+.about-content .pics {
+  float: left;
+  width: 450px;
+  height: 300px;
+  margin: 0 20px 20px 0;
+  border: 1px solid #ddd;
+}
+.about-content .pics .swiper-container {
+  width: 450px;
+  height: 300px;
+}
+.about-content .pic-wrap {
+  width: 100%;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+}
+.about-content .pics img {
+  max-width: 320px;
+  height: 100%;
+}
+.about-content .text-wrap {
+  line-height: 25px;
+}

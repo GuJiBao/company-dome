@@ -1,0 +1,29 @@
+<div class="footer-wrap">
+    <div class="wrap">
+        <!-- <div class="links">友情链接：<a href="#">某某网站</a><a href="#">某某网站</a><a href="#">某某网站</a><a href="#">某某网站</a><a href="#">某某网站</a></div> -->
+        <div class="clearfix">
+            <div class="left clearfix">
+                {{set address = language === 'en' ? contact.enAddress : contact.address}}
+                <ul class="link-style">
+                    <li><i class="fa fa-user-circle-o" aria-hidden="true"></i>{{contact.name}}</li>
+                    <li><i class="fa fa-phone" aria-hidden="true"></i>{{contact.tel}}</li>
+                    <li><i class="fa fa-phone-square" aria-hidden="true"></i>{{contact.phone}}</li>
+                    <li><i class="fa fa-map-marker" aria-hidden="true"></i>{{address}}</li>
+                </ul>
+                <ul class="link-style link-style-last">
+                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:{{contact.email}}" target="_blank">{{contact.email}}</a></li>
+                    <li><i class="fa fa-skype" aria-hidden="true"></i>{{contact.skype}}</li>
+                    <li><i class="fa fa-whatsapp" aria-hidden="true"></i>{{contact.whatsApp}}</li>
+                    <li><i class="fa fa-qq" aria-hidden="true"></i>{{contact.qq}}</li>
+                </ul>
+            </div>
+            <div class="right">
+                <div class="wx-wrap">
+                    <img class="wx" src="/web/assets/images/wx.jpg">
+                    <span>WeChat：{{contact.weChat}}</span>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">Copyright &copy; <span class="i18n" name="footerCompanyName"></span></p>
+    </div>
+</div>

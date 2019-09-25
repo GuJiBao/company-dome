@@ -1,0 +1,13 @@
+<header class="header-wrap">
+  <div class="header clearfix">
+    <h1 class="i18n logo" name="companyName"></h1>
+    <nav id="nav">
+      <a href="/" class="i18n" name="navHome" data-page="home"></a>
+      <a href="/about?curPage=about" class="i18n" name="navAbout" data-page="about"></a>
+      <a href="/product?curPage=product" class="i18n" name="navProduct" data-page="product"></a>
+      <a href="/news?curPage=news" class="i18n" name="navNews" data-page="news"></a>
+      <a href="/feedback?curPage=feedback" data-page="feedback">Feedback</a>
+      <a href="/contact?curPage=contact" class="i18n" name="navContact" data-page="contact"></a>
+    </nav>
+  </div>
+</header>

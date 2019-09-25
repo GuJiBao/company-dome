@@ -1,0 +1,65 @@
+<aside class="page-aside">
+  <!-- 产品目录列表 -->
+  <div class="module pro-classify mt15">
+    <div class="title">
+      <i class="fa fa-file-o" aria-hidden="true"></i
+      ><span class="i18n" name="titleProCatalog"></span>
+    </div>
+    <ul class="list">
+      {{each productCatalogs}}
+      {{set id = $value._id.toString()}}
+      <li>
+        {{set name = language === 'en' ? $value.enName : $value.name }}
+        <a href="/product?curPage=product&id={{ id }}" title="{{name}}">{{ name }}</a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  <!-- 新闻中心 -->
+  <div class="module news mt15">
+    <div class="title">
+      <i class="fa fa-newspaper-o" aria-hidden="true"></i
+      ><span class="i18n" name="titleNews"></span
+      ><a class="more i18n" name="linkMore" href="#"></a>
+    </div>
+    <ul class="list">
+      {{each news}}
+      <li>
+        {{set id = $value._id.toString()}}
+        {{set title = language === 'en' ? $value.enTitle : $value.title }}
+        <a href="/newsDetail?id={{ id }}" title="{{title}}"><i class="fa fa-angle-right" aria-hidden="true"></i>{{ title }}</a
+        >
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  <!-- 联系我们 -->
+  <div class="module contact-us mt15">
+    <div class="title">
+      <i class="fa fa-user-circle-o" aria-hidden="true"></i
+      ><span class="i18n" name="titleContact"></span>
+    </div>
+    <img class="pic" src="/web/assets/images/server.jpg" alt="" />
+    <div class="text-wrap">
+      {{set address = language === 'en' ? contact.enAddress : contact.address}}
+      <p>
+        <span><i class="i18n" name="contactName"></i>：</span>{{contact.name}}
+      </p>
+      <p>
+        <span><i class="i18n" name="contactTel"></i>：</span>{{contact.tel}}
+      </p>
+      <p>
+        <span><i class="i18n" name="contactPhone"></i>：</span>{{contact.phone}}
+      </p>
+      <p><span><i class="i18n" name="contactEmail"></i>：</span><a href="mailto:{{contact.email}}" target="_blank">{{contact.email}}</a></p>
+      <p>
+        <span><i class="i18n" name="contactAddress"></i>：</span
+        >{{address}}
+      </p>
+      <p><span>Skype：</span>{{contact.skype}}</p>
+      <p><span>WeChat：</span>{{contact.weChat}}</p>
+      <p><span>whatsapp：</span>{{contact.whatsApp}}</p>
+      <p><span>QQ：{{contact.qq}}</span></p>
+    </div>
+  </div>
+</aside>

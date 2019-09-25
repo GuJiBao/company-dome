@@ -1,0 +1,52 @@
+{{extend './layout.art'}}
+
+{{block 'meta'}}
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+{{/block}}
+{{block 'title'}}
+<title class="i18n" name="productPageTitle"></title>
+{{/block}}
+
+{{block 'head'}}
+<link rel="stylesheet" href="/web/assets/style/font.css" />
+<link rel="stylesheet" href="/web/assets/style/product.css" />
+{{/block}}
+
+{{block 'content'}}
+<div class="wrap banner-wrap"></div>
+<div class="wrap clearfix">
+  {{include './common/aside.art'}}
+  <section class="main">
+    <div class="module mt15">
+      <div class="title">
+        <i class="fa fa-external-link" aria-hidden="true"></i
+        ><span class="i18n" name="productDetailContentTitle"></span>
+      </div>
+      <div class="pro-content">
+        {{set name = language === 'en' ? data.enName : data.name}}
+        {{set classify = language === 'en' ? data.classify.enName : data.classify.name}}
+        {{set details = language === 'en' ? data.enDetails : data.details}}
+        <div class="pro-module1 clearfix">
+          <div class="pic-box">
+            <img src="{{ data.image.url }}" alt="" />
+          </div>
+          <div class="text-box">
+            <h2><strong>{{name}}</strong></h2>
+            <p><span><i class="i18n" name="proDetailClassify"></i>：</span>{{classify}}</p>
+            <p><span><i class="i18n" name="proDetailNo"></i>：</span>{{data.no}}</p>
+            <p><span><i class="i18n" name="proDetailUnit"></i>：</span>{{data.unit}}</p>
+          </div>
+        </div>
+        <div class="pro-module2">
+          <h3 class="i18n" name="proDetail"></h3>
+          <div class="detail-box">
+              {{details}}
+          </div>
+          <div class="time-box">{{data.updated_at | dateFormat 'yyyy-MM-dd'}}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{{/block}}

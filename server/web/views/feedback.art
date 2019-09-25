@@ -1,0 +1,70 @@
+{{extend './layout.art'}}
+
+{{block 'meta'}}
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+{{/block}}
+{{block 'title'}}
+  <title>feedback</title>
+{{/block}}
+
+{{block 'head'}}
+<link rel="stylesheet" href="/web/assets/style/font.css" />
+<link rel="stylesheet" href="/web/assets/style/feedback.css" />
+{{/block}}
+
+{{block 'content'}}
+<div class="wrap banner-wrap"></div>
+<div class="wrap clearfix">
+  {{include './common/aside.art'}}
+  <section class="main">
+    <div class="module mt15">
+      <div class="title">
+        <i class="fa fa-external-link" aria-hidden="true"></i>feedback
+      </div>
+      <div class="feedback-form">
+        <form class="page-form" id="form">
+            <div class="line-item">
+              <label class="label" for="name"><span class="flag-star">*</span><span class="i18n" name="feedbackName"></span>：</label><div class="text-wrap"><input type="text" name="name" class="input-text"></div>
+            </div>
+            <div class="line-item">
+              <label class="label" for="companyName"><span class="i18n" name="feedbackCompanyName"></span>：</label><div class="text-wrap"><input type="text" name="companyName" class="input-text"></div>
+            </div>
+            <div class="line-item">
+              <label class="label" for="address"><span class="i18n" name="feedbackAdr"></span>：</label><div class="text-wrap"><input type="text" name="address" class="input-text"></div>
+            </div>
+            <div class="line-item">
+              <label class="label" for="tel"><span class="i18n" name="feedbackTel"></span>：</label><div class="text-wrap"><input type="text" name="tel" class="input-text"></div>
+            </div>
+            <div class="line-item">
+              <label class="label" for="fax"><span class="i18n" name="feedbackFax"></span>：</label><div class="text-wrap"><input type="text" name="fax" class="input-text"></div>
+            </div>
+            <div class="line-item">
+              <label class="label" for="email"><span class="flag-star">*</span><span class="i18n" name="feedbackEmail"></span>：</label><div class="text-wrap"><input type="text" name="email" class="input-text"></div>
+            </div>
+            <div class="line-item">
+              <label class="label" for="website"><span class="i18n" name="feedbackWebSite"></span>：</label><div class="text-wrap"><input type="text" name="website" class="input-text"></div>
+            </div>
+            <div class="line-item">
+              <label class="label" for="skype">skype：</label><div class="text-wrap"><input type="text" name="skype" class="input-text"></div>
+            </div>
+            <div class="line-item">
+              <label class="label" for="content"><span class="flag-star">*</span><span class="i18n" name="feedbackContent"></span>：</label><div class="text-wrap"><textarea type="text" name="content" class="textarea-text"></textarea></div>
+            </div>
+            <div class="line-item">
+              <label class="label" for="code"><span class="flag-star">*</span><span class="i18n" name="feedbackCode"></span>：</label><div class="text-wrap form-code clearfix"><input type="text" name="code" class="input-text input-code" maxlength="4"><span class="captcha-box" id="code">{{captcha}}</span></div>
+            </div>
+            <p class="hint i18n" name="feedbackHint"></p>
+            <div class="form-btn"><input type="submit" class="btn i18n-input" selectname="feedbackBtnValue" value=""></div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+</div>
+{{/block}}
+
+{{block 'foot'}}
+<script src="/web/assets/js/plugins/jqueryValidate/feedback_i18n_msg.js"></script>
+<script src="/web/assets/js/feedback.js"></script>
+{{/block}}

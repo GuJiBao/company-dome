@@ -1,0 +1,43 @@
+{{extend './layout.art'}}
+
+{{block 'meta'}}
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+{{/block}}
+{{block 'title'}}
+<title class="i18n" name="contactPageTitle"></title>
+{{/block}}
+
+{{block 'head'}}
+<link rel="stylesheet" href="/web/assets/style/font.css" />
+<link rel="stylesheet" href="/web/assets/style/contact.css" />
+{{/block}}
+
+{{block 'content'}}
+<div class="wrap banner-wrap"></div>
+<div class="wrap clearfix">
+  {{include './common/aside.art'}}
+  <section class="main">
+    <div class="module mt15">
+      <div class="title">
+        <i class="fa fa-external-link" aria-hidden="true"></i
+        ><span class="i18n" name="contactContentTitle"></span>
+      </div>
+      <div class="contact-content">
+        <ul class="list">
+            {{set address = language==='en' ? data.enAddress : data.address}}
+            <li><span class="label"><i class="i18n" name="contactName"></i>：</span>{{data.name}}</li>
+            <li><span class="label"><i class="i18n" name="contactTel"></i>：</span>{{data.tel}}</li>
+            <li><span class="label"><i class="i18n" name="contactPhone"></i>：</span>{{data.phone}}</li>
+            <li><span class="label"><i class="i18n" name="contactEmail"></i>：</span><a href="mailto:{{data.email}}" target="_blank">{{data.email}}</a></li>
+            <li><span class="label"><i class="i18n" name="contactAddress"></i>：</span>{{address}}</li>
+            <li><span class="label">Skype：</span>{{data.skype}}</li>
+            <li><span class="label">WeChat：</span>{{data.weChat}}</li>
+            <li><span class="label">whatsapp：</span>{{data.whatsApp}}</li>
+            <li><span class="label">QQ：</span>{{data.qq}}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+{{/block}}

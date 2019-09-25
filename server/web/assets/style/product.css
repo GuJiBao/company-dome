@@ -1,0 +1,92 @@
+.product-list {
+  margin-top: 15px;
+}
+.product-list .item {
+  float: left;
+  width: 208px;
+  margin: 0 10px 15px;
+  border: 1px solid #ccc;
+  transition: all 0.3s;
+}
+.product-list .item:hover {
+  border-color: #098abf;
+}
+.product-list .item .pic {
+  display: block;
+  width: 200px;
+  height: 160px;
+  margin: 4px auto 0;
+  line-height: 160px;
+  text-align: center;
+}
+.product-list .item .pic img {
+  max-width: 100%;
+  max-height: 160px;
+  vertical-align: middle;
+}
+.product-list .item .text {
+  height: 30px;
+  padding: 0 15px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pro-content {
+  padding: 25px 40px;
+}
+.pro-content .pro-module1 {
+  width: 100%;
+}
+.pro-content .pic-box {
+  float: left;
+  width: 300px;
+  padding: 3px;
+  text-align: center;
+  border: 1px solid #ddd;
+  overflow: hidden;
+}
+.pro-content .pic-box img {
+  max-width: 100%;
+  max-height: 200px;
+}
+.pro-content .text-box {
+  float: left;
+  margin-left: 25px;
+}
+.pro-content .text-box h2 {
+  margin: 15px 0;
+  font-weight: 100;
+  font-size: 16px;
+}
+.pro-content .text-box p {
+  margin-bottom: 10px;
+}
+.pro-content .text-box p span {
+  color: #666;
+}
+.pro-content .text-box i {
+  font-style: inherit;
+}
+.pro-content .pro-module2 {
+  margin-top: 35px;
+}
+.pro-content .pro-module2 h3 {
+  height: 40px;
+  margin-bottom: 25px;
+  line-height: 40px;
+  text-indent: 10px;
+  border-bottom: 1px dashed #ddd;
+  font-size: 16px;
+}
+.pro-content .detail-box {
+  padding: 0 20px;
+  line-height: 25px;
+}
+.pro-content .time-box {
+  margin-top: 35px;
+  padding: 0 20px;
+  text-align: right;
+  font-size: 14px;
+  color: #666;
+}

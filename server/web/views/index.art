@@ -1,0 +1,138 @@
+{{extend './layout.art'}}
+{{block 'meta'}}
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+{{/block}}
+{{block 'title'}}
+<title class="i18n" name="homePageTitle"></title>
+{{/block}}
+
+{{block 'head'}}
+<link rel="stylesheet" href="/web/assets/style/swiper.min.css" />
+<link rel="stylesheet" href="/web/assets/style/font.css" />
+<link rel="stylesheet" href="/web/assets/style/index.css" />
+{{/block}}
+
+{{block 'content'}}
+<div id="page-banner">
+  <div class="swiper-container" id="bannerSwiper">
+    <div class="swiper-wrapper">
+      {{each banners}}
+      <div class="swiper-slide">
+        {{if $value.title}}
+        <div class="content">
+          <div class="txt">
+            <h3>{{ $value.title }}</h3>
+            <p>{{ $value.intro }}</p>
+          </div>
+          <a href="{{ $value.url }}" class="link">link</a>
+        </div>
+        {{/if}}
+        <div class="img-fix">
+          <div class="img-inner">
+            <img src="{{ $value.image.url }}" class="img" />
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    <div class="bottom-nav">
+      <div class="banner-icon-videoplay"></div>
+      <div class="swiper-pagination" id="bannerSwiper_page"></div>
+    </div>
+    <div class="swiper-button-prev" id="bannerSwiper_prev"></div>
+    <div class="swiper-button-next" id="bannerSwiper_next"></div>
+  </div>
+</div>
+<div class="wrap module hot-pro">
+  <div class="title mt15">
+    <i class="fa fa-product-hunt" aria-hidden="true"></i
+    ><span class="i18n" name="titleHotPro"></span>
+  </div>
+  <div class="swiper-container" id="hotProSwiper">
+    <div class="swiper-wrapper">
+      {{each hotProducts}}
+      {{set id = $value._id.toString()}}
+      <div class="swiper-slide">
+        <div class="item">
+          <a href="/productDetail?curPage=product&id={{ id }}"
+            ><img class="pic" src="{{ $value.image.url }}" alt=""
+          /></a>
+          <p class="text">
+            {{set name = language === 'en' ? $value.enName : $value.name }}
+            <a href="/productDetail?curPage=product&id={{ id }}">{{ name }}</a>
+          </p>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
+<div class="wrap clearfix">
+  {{include './common/aside.art'}}
+  <section class="main">
+    <!-- 关于我们 -->
+    <div class="module about-us mt15">
+      <div class="title">
+        <i class="fa fa-address-card" aria-hidden="true"></i
+        ><span class="i18n" name="titleAbout"></span
+        ><a class="more i18n" name="linkMore" href="#"></a>
+      </div>
+      <div class="cont clearfix">
+        <!-- <div class="pic"><img src="{{aboutUs.image && aboutUs.image.url}}"></div> -->
+        <div class="pics">
+          <div class="swiper-container" id="aboutSwiper">
+            <div class="swiper-wrapper">
+              {{each aboutUs.images}}
+              <div class="swiper-slide">
+                <div class="pic-wrap">
+                  <img src="{{ $value.path }}" class="img" />
+                </div>
+              </div>
+              {{/each}}
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+        <div class="text-wrap">
+          {{set details = language === 'en' ? aboutUs.enDetails : aboutUs.details}}
+          {{ details }}
+        </div>
+      </div>
+    </div>
+    <!-- 产品展示 -->
+    <div class="module pro-show mt15">
+      <div class="title">
+        <i class="fa fa-product-hunt" aria-hidden="true"></i
+        ><span class="i18n" name="titleProShow"></span
+        ><a class="more i18n" name="linkMore" href="#"></a>
+      </div>
+      <div class="list clearfix">
+        {{each productShow}}
+        {{set id = $value._id.toString()}}
+        <div class="item">
+          <a href="/productDetail?curPage=product&id={{ id }}" class="pic"
+            ><img src="{{ $value.image.url }}"
+          /></a>
+          <p class="text">
+            {{set name = language === 'en' ? $value.enName : $value.name }}
+            <a
+              href="/productDetail?curPage=product&id={{ id }}"
+              title="{{ name }}"
+              >{{ name }}</a
+            >
+          </p>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+</div>
+
+{{/block}}
+
+{{block 'foot'}}
+<script src="/web/assets/js/plugins/swiper/swiper.min.js"></script>
+<script src="/web/assets/js/index.js"></script>
+{{/block}}

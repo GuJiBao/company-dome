@@ -1,0 +1,70 @@
+{{extend './layout.art'}}
+
+{{block 'meta'}}
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+{{/block}}
+{{block 'title'}}
+<title class="i18n" name="newsPageTitle"></title>
+{{/block}}
+
+{{block 'head'}}
+<link rel="stylesheet" href="/web/assets/style/font.css" />
+<link rel="stylesheet" href="/web/assets/style/news.css" />
+{{/block}}
+
+{{block 'content'}}
+<div class="wrap banner-wrap"></div>
+<div class="wrap clearfix">
+  {{include './common/aside.art'}}
+  <section class="main">
+    <div class="module mt15">
+      <div class="title">
+        <i class="fa fa-external-link" aria-hidden="true"></i
+        ><span class="i18n" name="newsContentTitle"></span>
+      </div>
+      <div class="news-table">
+        <table class="page-table">
+          <tbody>
+            {{each newsData}}
+            <tr>
+              {{set id = $value._id.toString()}}
+              {{set title = language === 'en' ? $value.enTitle : $value.title }}
+              <td>
+                <a href="/newsDetail?curPage=news&id={{ id }}">{{ title }}</a>
+              </td>
+              <td class="time">
+                <span>{{ $value.updated_at | dateFormat }}</span>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <div class="page-box">
+          <div id="page"></div>
+          <input
+            type="hidden"
+            class="i18n-input"
+            selectname="firstPage"
+            value=""
+            id="inputFirstPage"
+          />
+          <input
+            type="hidden"
+            class="i18n-input"
+            selectname="lastPage"
+            value=""
+            id="inputLastPage"
+          />
+          <input type="hidden" value="{{ pageTotal }}" id="pageTotal" />
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{{/block}}
+
+{{block 'foot'}}
+<script src="/web/assets/js/plugins/page/jquery.page.js"></script>
+<script src="/web/assets/js/news.js"></script>
+{{/block}}

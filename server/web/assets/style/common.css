@@ -1,0 +1,592 @@
+* {
+  box-sizing: border-box;
+}
+/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td {
+  /* table elements 表格元素 */
+  margin: 0;
+  padding: 0;
+}
+
+/* 设置默认字体 */
+body,
+button,
+input,
+select,
+textarea {
+  /* for ie */
+  font: 14px "微软雅黑", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font-size: 18px; /* 18px / 12px = 1.5 */
+}
+h2 {
+  font-size: 16px;
+}
+h3 {
+  font-size: 14px;
+}
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+  font-style: normal;
+} /* 将斜体扶正 */
+code,
+kbd,
+pre,
+samp,
+tt {
+  font-family: "Courier New", Courier, monospace;
+} /* 统一等宽字体 */
+small {
+  font-size: 12px;
+} /* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/* 重置列表元素 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 重置文本格式元素 */
+a,
+a:hover {
+  text-decoration: none;
+}
+a {
+  color: #333;
+  transition: all 0.3s;
+}
+a:hover {
+  color: #098abf;
+}
+
+abbr[title],
+acronym[title] {
+  /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+q:before,
+q:after {
+  content: "";
+}
+
+/* 重置表单元素 */
+legend {
+  color: #000;
+} /* for ie6 */
+fieldset,
+img {
+  border: none;
+} /* img 搭车：让链接里的 img 无边框 */
+/* 注：optgroup 无法扶正 */
+button,
+input,
+select,
+textarea {
+  font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
+  outline: none; /* 清除外边框 */
+}
+
+/* 重置表格元素 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
+html {
+  overflow-y: scroll;
+}
+/*超出内容显示省略号*/
+.ellipsis {
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+/*浮动*/
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+/*清除浮动*/
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+/*间距*/
+.mt15 {
+  margin-top: 15px;
+}
+
+/*自定义公共样式*/
+.wrap {
+  width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+/*顶部*/
+.page-top {
+  height: 30px;
+  line-height: 30px;
+  background-color: #031b46;
+}
+.page-top .link {
+  float: left;
+}
+.page-top .link span {
+  margin-right: 15px;
+  font-size: 12px;
+  color: #a7a7a7;
+}
+.page-top .link .fa {
+  margin-right: 10px;
+  font-size: 16px;
+  color: #a7a7a7;
+}
+.page-top .tool {
+  float: right;
+}
+/* .page-top .tool .lan1 {
+  float: left;
+  color: #a7a7a7;
+}
+.page-top .tool .lan2 {
+  float: left;
+  margin-top: 3px;
+} */
+.page-top .language {
+  margin-top: 3px;
+}
+.page-top .language span {
+  margin-left: 10px;
+}
+.page-top .language img {
+  width: 25px;
+  height: 17px;
+  cursor: pointer;
+}
+
+/*头部*/
+.header-wrap {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.header {
+  width: 1440px;
+  height: 80px;
+  margin: 0 auto;
+  background-color: #fafbfc;
+}
+.header-wrap .logo {
+  position: relative;
+  float: left;
+  height: 40px;
+  margin-top: 20px;
+  line-height: 40px;
+  text-indent: 20px;
+  color: #1d365d;
+  font-size: 24px;
+}
+#nav {
+  float: right;
+  height: 40px;
+  margin-top: 20px;
+  line-height: 40px;
+}
+#nav a {
+  position: relative;
+  display: inline-block;
+  height: 40px;
+  margin-left: 35px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+#nav a.active,
+#nav a:hover {
+  color: #098abf;
+}
+#nav a::before {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0%;
+  background: #098abf;
+  background-position: center;
+  content: "";
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+#nav a:hover::before,
+#nav a.active::before {
+  width: 100%;
+}
+
+/*公共模块*/
+.module .title {
+  height: 45px;
+  padding: 0 15px 0 10px;
+  border-bottom: 1px solid #dfe7f0;
+  line-height: 45px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  overflow: hidden;
+}
+.module .title .fa {
+  margin-right: 10px;
+  color: #ddae26;
+}
+.module .title .more {
+  float: right;
+  font-size: 14px;
+  font-weight: 100;
+  color: #333;
+}
+.module .title .more:hover {
+  color: #098abf;
+}
+
+/*banner*/
+.banner-wrap {
+  height: 280px;
+  margin-top: 2px;
+  background: url("/web/assets/images/banner_other.png") no-repeat center center;
+}
+.banner-wrap img {
+  width: 100%;
+  height: 280px;
+}
+
+/*侧边栏*/
+.page-aside {
+  float: left;
+  width: 280px;
+}
+
+/*主体*/
+.main {
+  float: right;
+  width: 1140px;
+}
+
+/*底部*/
+.footer-wrap {
+  width: 100%;
+  margin-top: 20px;
+  padding-top: 45px;
+  padding-bottom: 15px;
+  background-color: #031b46;
+}
+.footer-wrap .left {
+  float: left;
+}
+.footer-wrap .right {
+  float: right;
+}
+.footer-wrap .links {
+  padding-top: 25px;
+  text-align: left;
+  color: #ccc;
+}
+.footer-wrap .links a {
+  margin: 0 10px;
+  font-size: 12px;
+  color: #ccc;
+}
+.footer-wrap .links a:hover {
+  color: #098abf;
+}
+.footer-wrap .link-style {
+  float: left;
+  margin: 15px 35px 0 0;
+}
+.footer-wrap .link-style li {
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #ccc;
+}
+.footer-wrap .link-style li .fa {
+  margin-right: 10px;
+}
+.footer-wrap .link-style li a {
+  color: #ccc;
+}
+.footer-wrap .link-style li a:hover {
+  color: #098abf;
+}
+.footer-wrap .link-style-last {
+  margin-left: 305px;
+}
+.footer-wrap .wx-wrap {
+  float: left;
+  width: 140px;
+}
+.footer-wrap .wx-wrap .wx {
+  width: 140px;
+  height: 140px;
+}
+.footer-wrap .wx-wrap span {
+  font-size: 12px;
+  color: #ccc;
+}
+.footer-wrap .copyright {
+  text-align: center;
+  color: #ccc;
+}
+
+/*产品目录*/
+.pro-classify .list {
+  padding: 0 15px;
+}
+.pro-classify .list li {
+  height: 35px;
+  padding-left: 15px;
+  border-bottom: 1px dashed #ccc;
+  line-height: 35px;
+}
+
+/*新闻中心*/
+.news .list {
+  padding: 0 15px;
+}
+.news .list li {
+  height: 35px;
+  padding: 0 30px 0 10px;
+  line-height: 35px;
+  border-bottom: 1px dashed #ccc;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-overflow: ellipsis; /* IE/Safari */
+}
+.news .list li .fa {
+  margin-right: 8px;
+}
+
+/*联系我们*/
+.contact-us .pic {
+  display: block;
+  width: 260px;
+  margin: 10px auto;
+}
+.contact-us .text-wrap {
+  padding: 0 15px;
+}
+.contact-us .text-wrap p {
+  line-height: 25px;
+  color: #666;
+}
+.contact-us .text-wrap p i {
+  font-style: inherit;
+}
+.contact-us .text-wrap p span {
+  color: #333;
+}
+.contact-us .text-wrap p a {
+  color: #666;
+}
+.contact-us .text-wrap p a:hover {
+  color: #098abf;
+}
+
+/*表单*/
+.page-form {
+  width: 100%;
+}
+.page-form input,
+.page-form textarea {
+  padding: 0 5px;
+}
+.page-form .line-item {
+  margin-bottom: 15px;
+}
+.page-form .label {
+  float: left;
+  width: 160px;
+  height: 32px;
+  margin-right: 15px;
+  line-height: 32px;
+  text-align: right;
+  color: #666;
+}
+.page-form .flag-star {
+  margin-right: 5px;
+  color: #c00;
+}
+.page-form .input-text,
+.page-form .textarea-text {
+  width: 300px;
+  height: 32px;
+  line-height: 32px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.page-form .textarea-text {
+  width: 360px;
+  height: 120px;
+}
+.page-form .input-code {
+  width: 110px;
+}
+.page-form .form-btn {
+  margin-top: 25px;
+  padding-left: 175px;
+}
+.page-form .btn {
+  width: 120px;
+  height: 35px;
+  background-color: #098abf;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.page-form .btn:hover {
+  background-color: #578bdb;
+}
+.page-form .hint {
+  padding-left: 175px;
+  font-size: 12px;
+  color: #666;
+}
+
+.page-form label.error {
+  margin-left: 15px;
+  color: #bc1a2e;
+}
+
+/*表格样式*/
+.page-table {
+  width: 100%;
+}
+.page-table tr {
+  height: 40px;
+  border-bottom: 1px dashed #ddd;
+}
+.page-table tr:hover {
+  background-color: #f5f5f5;
+}
+.page-table tr td {
+  padding: 10px 15px;
+}
+.page-table tr td:first-child {
+  width: 80%;
+}
+.page-table tr .time {
+  color: #999;
+}
+
+/*分页样式*/
+.page-box {
+  padding: 45px 0; 
+}
+.page-box #page {
+  height: 50px;
+  display: table;
+  margin: 0 auto;
+}
+
+.page-box .page {
+  text-align: center;
+}
+
+.page-box .pagingUl {
+  float: right;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 30px;
+}
+
+.page-box .pagingUl li {
+  float: left;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  text-align: center;
+  margin-right: 5px;
+  border-radius: 5px
+}
+
+.page-box .pagingUl li a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 28px;
+  color: #666;
+  font-size: 12px;
+  border-radius: 5px
+}
+
+.page-box .prv,
+.page-box .next {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  background: #fff;
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+.page-box .prv {
+  margin-right: 10px;
+}
+
+.page-box .first,
+.page-box .last {
+  width: 60px;
+  height: 30px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 30px;
+  /*border: 1px solid #ddd;*/
+  cursor: pointer;
+  background: #fff;
+  padding: 0 5px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.page-box .prv:hover,
+.page-box .next:hover,
+.page-box .first:hover,
+.page-box .last:hover,
+.page-box .pagingUl li a:hover,
+.page-box .active {
+  background-color: #098abf!important;
+  color: #fff!important;
+}
